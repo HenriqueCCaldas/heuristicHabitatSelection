@@ -43,8 +43,8 @@ public:
     void sort_vizinhos();
     void sort_especies();
     void insere_ls_povoamento(const int&);                           //para utilizar no conjunto de solução
-    void remove_ls_povoamento(const int&);                           // n é a posição do povoamento a remover na lista!
-    povoamento &seliciona_povoamento(int &);
+    void remove_ls_povoamento(const int&);                           //n é a posição do povoamento a remover na lista!
+    povoamento& seliciona_povoamento(int &);
     vector <int>& get_ls(){
         return ls;
     }

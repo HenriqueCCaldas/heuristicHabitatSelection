@@ -25,7 +25,7 @@ void povoamento::resize_vizinhanca(const int& i){
     vizinhanca.resize(i);
 }
 int povoamento::get_nmr_especies_(){                                        //Número de espécies
-    int r;
+    int r=0;
     for (unsigned int i=0;i<especies.size();++i){
         r=+especies.at(i);
     }
