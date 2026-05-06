@@ -8,15 +8,15 @@ povoamento::povoamento(){
     numero=1;
 }
 povoamento::povoamento(const int &viz, const int &esp){
-        especies.resize(esp);
-        vizinhanca.resize(viz);
-        for(unsigned int i=0;i<especies.size();++i){
-            especies.at(i)=0;
-        }
-        for(unsigned int i=0;i<vizinhanca.size();++i){
-            vizinhanca.at(i)=0;
-        }
-        numero=1;
+    especies.resize(esp);
+    vizinhanca.resize(viz);
+    for(unsigned int i=0;i<especies.size();++i){
+        especies.at(i)=0;
+    }
+    for(unsigned int i=0;i<vizinhanca.size();++i){
+        vizinhanca.at(i)=0;
+    }
+    numero=1;
 }
 void povoamento::resize_especies(const int& i){
     especies.resize(i);
@@ -208,7 +208,7 @@ void iteracao( lista_povoamentos& R, lista_especies&  aux, vector <vector <int>>
     }
 }
 void verificacao (lista_povoamentos& R, lista_especies& aux){
-   int a=-1;int k=0;
+    int a=-1;int k=0;
     for(int esp=0; esp<aux.get().size();++esp){                                                                                                       //para cada uma das especies
         a=-1;
         for(int pov=0;pov<R.get_ls().size();++pov){
