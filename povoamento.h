@@ -14,12 +14,12 @@ class povoamento
 
 public:
     povoamento();
-    povoamento(const int&,const int&);
+    povoamento(const int&, const int&);
     void resize_vizinhanca(const int&);
     void resize_especies(const int&);
     int get_nmr_vizinhanca();
     int get_nmr_especies_();
-    povoamento& operator =( const povoamento&);
+    povoamento& operator = (const povoamento&);
     vector <int>& get_especies(){
         return especies;
     }
@@ -44,7 +44,7 @@ public:
     void sort_especies();
     void insere_ls_povoamento(const int&);                           //para utilizar no conjunto de solução
     void remove_ls_povoamento(const int&);                           //n é a posição do povoamento a remover na lista!
-    povoamento& seliciona_povoamento(int &);
+    povoamento& seliciona_povoamento(const int &);
     vector <int>& get_ls(){
         return ls;
     }
@@ -57,6 +57,7 @@ public:
                 }
                 lista.pop_back();
                 ls.pop_back();
+                --i;
             }
         }
     }

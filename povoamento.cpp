@@ -8,15 +8,15 @@ povoamento::povoamento(){
     numero=1;
 }
 povoamento::povoamento(const int &viz, const int &esp){
-    especies.resize(esp);
-    vizinhanca.resize(viz);
-    for(unsigned int i=0;i<especies.size();++i){
-        especies.at(i)=0;
-    }
-    for(unsigned int i=0;i<vizinhanca.size();++i){
-        vizinhanca.at(i)=0;
-    }
-    numero=1;
+        especies.resize(esp);
+        vizinhanca.resize(viz);
+        for(unsigned int i=0;i<especies.size();++i){
+            especies.at(i)=0;
+        }
+        for(unsigned int i=0;i<vizinhanca.size();++i){
+            vizinhanca.at(i)=0;
+        }
+        numero=1;
 }
 void povoamento::resize_especies(const int& i){
     especies.resize(i);
@@ -25,16 +25,16 @@ void povoamento::resize_vizinhanca(const int& i){
     vizinhanca.resize(i);
 }
 int povoamento::get_nmr_especies_(){                                        //Número de espécies
-    int r=0;
+    int r = 0;
     for (unsigned int i=0;i<especies.size();++i){
-        r=+especies.at(i);
+        r = r + especies.at(i);
     }
     return r;
 }
 int povoamento::get_nmr_vizinhanca(){                                      //Número de vizinhos
     int r=0;
     for (unsigned int i=0;i<vizinhanca.size();++i){
-        r=r+vizinhanca.at(i);
+        r= r + vizinhanca.at(i);
     }
     return r;
 }
@@ -91,7 +91,7 @@ void lista_povoamentos::sort_vizinhos(){
         }
     }
 }
-povoamento& lista_povoamentos::seliciona_povoamento(int& n){ //ATENÇÃO: O número n é o número do povoamento correspondente à posição n do vetor.
+povoamento& lista_povoamentos::seliciona_povoamento(const int& n){ //ATENÇÃO: O número n é o número do povoamento correspondente à posição n do vetor.
     return lista.at(n);
 }
 void lista_povoamentos::sort_especies(){
@@ -121,7 +121,7 @@ vector <int>& lista_especies:: get(){
     return species;
 }
 iostream& operator >>(iostream& is, vector<int>& aux) {
-    for(unsigned int i=0;i<<aux.size();++i){
+    for(unsigned int i=0;i<aux.size();++i){
         is>>aux.at(i);
     }
     return is;
@@ -164,9 +164,10 @@ void iteracao( lista_povoamentos& R, lista_especies&  aux, vector <vector <int>>
             j=0;
             ++i;
         }
-    cout<<endl<<"Especie a analisar: "<<posicao_especie+1<<endl<<"Povoamento a analisar: "<<R.seliciona_povoamento(posicao_povoamento).get_numero()<<endl;
+
     if(posicao_especie==-1){                                                                                                                         //caso seja impossível encontrar espécie que não cumpra os requisitos em R
         int k=0;
+        cout<<endl<<"Especie a analisar: "<<posicao_especie+1<<endl<<"Povoamento a analisar: "<<R.seliciona_povoamento(posicao_povoamento).get_numero()<<endl;
         while (R.get_ls().at(k)!=0 and k<R.get_ls().size()){                                                                                         //seleciona um povoamento que ainda não está em R                                                                                                                //encontra um povoamento que não esteja na rede para adicioná-lo
             k++;
         }
@@ -208,7 +209,7 @@ void iteracao( lista_povoamentos& R, lista_especies&  aux, vector <vector <int>>
     }
 }
 void verificacao (lista_povoamentos& R, lista_especies& aux){
-    int a=-1;int k=0;
+   int a=-1;int k=0;
     for(int esp=0; esp<aux.get().size();++esp){                                                                                                       //para cada uma das especies
         a=-1;
         for(int pov=0;pov<R.get_ls().size();++pov){
